@@ -1,0 +1,44 @@
+/* src/components/Services.css */
+
+#services {
+    padding: 3rem;
+    text-align: center;
+    background-color: #f9f9f9;
+  }
+  
+  #services h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  #services p {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+  }
+  
+  .service-slide {
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .service-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .service-slide h3 {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    color: #1a73e8;
+  }
+  
+  .service-slide p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
