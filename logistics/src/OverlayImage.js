@@ -1,83 +1,165 @@
-// src/components/OverlayImage.js
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import { Box, Typography, Container } from "@mui/material";
+import { motion, AnimatePresence } from "framer-motion";
 
 const OverlayImage = () => {
+  const galleryImages = [
+    '/truck1.jpg',
+    '/truck2.jpg',
+    '/truck3.jpg',
+    '/truck4.jpg',
+    '/truck5.jpg',
+    '/1.png',
+    '/2.png',
+    '/3.png',
+    '/4.png',
+    '/5.png',
+    '/6.png',
+    '/7.png',
+    '/9.png',
+    '/10.png',
+    '/11.png',
+    '/12.png',
+    '/13.png',
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % galleryImages.length);
+    }, 3000); // Change image every 3 seconds
+
+    return () => clearInterval(interval); // Cleanup on component unmount
+  }, [galleryImages.length]);
+
   return (
-    <div style={styles.overlayContainer}>
-      <img src="/truck3.jpg" alt="Logistics" style={styles.image} />
-      <div style={styles.overlay}>
-        <h1 style={styles.title}>Welcome to Umris Enterprises</h1>
-        <p style={styles.subtitle}>
-          <span style={styles.emphasis}>Umris Enterprises: </span>
-          <span style={styles.standout}>Eyes on Perfection.</span>
-        </p>
-      </div>
-    </div>
+    <Box
+      sx={{
+        position: "relative",
+        overflow: "hidden",
+        width: "100%",
+        height: { xs: "400px", md: "600px" },
+        bgcolor: "#000",
+      }}
+    >
+      <AnimatePresence mode="wait">
+        <motion.img
+          key={currentIndex}
+          src={galleryImages[currentIndex]}
+          alt={`Slide ${currentIndex + 1}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            filter: "brightness(50%)",
+          }}
+        />
+      </AnimatePresence>
+      <Container
+        maxWidth="lg"
+        sx={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          textAlign: "center",
+          color: "#fff",
+          zIndex: 1,
+        }}
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+        >
+          <Typography
+            variant="h1"
+            sx={{
+              fontSize: { xs: "2rem", sm: "2.5rem", md: "3.5rem" },
+              fontWeight: 700,
+              mb: 2,
+              textTransform: "uppercase",
+              letterSpacing: "0.1em",
+              textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
+            }}
+          >
+            Umris Enterprises
+          </Typography>
+          <Typography
+            variant="h2"
+            sx={{
+              fontSize: { xs: "1.5rem", sm: "2rem", md: "2.5rem" },
+              fontWeight: 500,
+              color: "primary.main",
+              textTransform: "uppercase",
+              letterSpacing: "0.05em",
+              textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
+            }}
+          >
+            Eyes on Perfection
+          </Typography>
+        </motion.div>
+      </Container>
+    </Box>
   );
 };
 
-const styles = {
+export default OverlayImage;
   overlayContainer: {
     position: 'relative',
-    textAlign: 'right',  // Align content to the right
-    color: '#ffffff',    // Light text color
-    overflow: 'hidden',  // Ensure the image doesn't overflow the container
+    overflow: 'hidden',
+    width: '100%',
+    height: '500px', // Fixed height for consistent display
+    boxSizing: 'border-box', // Ensure padding doesn't cause overflow
   },
   image: {
     width: '100%',
-    height: '500px',
-    objectFit: 'cover',  // Ensure image fits within the container without distortion
-    filter: 'brightness(70%)',  // Slightly dim the image for better text contrast
+    height: '100%',
+    objectFit: 'cover', // Prevent image distortion
+    filter: 'brightness(70%)',
+    transition: 'opacity 1s ease-in-out', // Smooth fade transition
   },
-  overlay: {
+  textOverlay: {
     position: 'absolute',
     top: '50%',
-    right: '0',
-    transform: 'translateY(-50%)',  // Center vertically and align to the right
-    backgroundColor: 'rgba(41, 41, 41, 0.7)',  // Slightly darker overlay for better readability
-    padding: '2rem 3rem',
-    borderRadius: '12px',
-    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',  // Add depth with a soft shadow
-    width: '50%',  // Set a fixed width to avoid excessive space on large screens
-  },
-  title: {
-    fontSize: '3.5rem',  // Large title size
-    fontWeight: '700',
-    marginBottom: '1rem',
-    fontFamily: '"Roboto", sans-serif',
-    letterSpacing: '1.5px',
-    textTransform: 'uppercase',
-    color: '#a74a88',  // Use primary color for title
-    textShadow: '3px 3px 5px rgba(0, 0, 0, 0.6)',  // Stronger shadow for better contrast
-    lineHeight: '1.2',
+    right: '10%', // Adjusted for right alignment
+    transform: 'translateY(-50%)',
+    textAlign: 'right',
+    color: '#ffffff',
+    textShadow: '4px 4px 8px rgba(0, 0, 0, 0.4)', // Increased box-shadow opacity for better visibility
+    zIndex: 1, // Ensure text appears above image
   },
   subtitle: {
-    fontSize: '1.6rem',
+    fontSize: '2.4rem', // Increased font size for readability
     fontWeight: '400',
-    fontFamily: '"Arial", sans-serif',
-    letterSpacing: '1px',
+    fontFamily: '"Merriweather", serif', // Professional and appealing font
+    letterSpacing: '1.5px',
     marginTop: '0',
-    color: '#ffffff',  // White color for readability
-    textShadow: '1px 1px 5px rgba(0, 0, 0, 0.5)',  // Light shadow for contrast
+    color: '#ffffff',
     fontStyle: 'italic',
-    lineHeight: '1.5',
+    lineHeight: '1.7',
   },
   emphasis: {
-    fontWeight: '700',  // Use bold weight for emphasis
-    fontSize: '1.9rem',  // Size similar to the title for consistency
-    color: '#ffffff',  // White color for emphasis
+    fontWeight: '700',
+    fontSize: '2.7rem', // Increased font size for emphasis
+    color: '#ffffff',
     textTransform: 'uppercase',
-    letterSpacing: '1px',
-    fontStyle: 'italic',  // Italic style to match subtitle
+    letterSpacing: '1.5px',
+    fontStyle: 'italic',
   },
   standout: {
-    fontWeight: '800',  // Bolder weight to make it stand out more
-    fontSize: '2.5rem',  // Larger font size for greater emphasis
-    color: '#a74a88',  // Primary color for attention
+    fontWeight: '800',
+    fontSize: '3.2rem', // Increased font size for standout effect
+    color: '#a74a88',
     textTransform: 'uppercase',
-    letterSpacing: '2px',  // Add more spacing between letters
-    fontStyle: 'italic',  // Keep italic style for consistency
-    textShadow: '4px 4px 8px rgba(0, 0, 0, 0.7)',  // Strong shadow for contrast and emphasis
+    letterSpacing: '2.5px',
+    fontStyle: 'italic',
+    textShadow: '4px 4px 8px rgba(0, 0, 0, 0.6)', // Enhanced shadow for standout effect
   },
 };
 

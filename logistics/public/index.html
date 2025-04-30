@@ -2,45 +2,59 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <!-- React Developer Tools for Development (only for local environment) -->
     <script src="http://localhost:8097"></script>
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+
+    <!-- Favicon for the app -->
+    <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
+
+    <!-- Google Fonts for better typography -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
+    <!-- Viewport settings for responsive design -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Welcome to Umris Enterprise - Your trusted partner for logistics and transportation solutions." />
+    
+    <!-- Open Graph Meta Tags for Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Umris Enterprise - Logistics and Transportation" />
+    <meta property="og:description" content="Umris Enterprise offers reliable logistics and transportation solutions to help businesses and NGOs. Partner with us for timely and safe deliveries." />
+    <meta property="og:image" content="%PUBLIC_URL%/og-image.png" />
+    <meta property="og:url" content="https://www.umris-enterprise.is-great.org" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Umris Enterprise - Logistics and Transportation" />
+    <meta name="twitter:description" content="Umris Enterprise offers reliable logistics and transportation solutions to help businesses and NGOs. Partner with us for timely and safe deliveries." />
+    <meta name="twitter:image" content="%PUBLIC_URL%/twitter-image.png" />
+    <meta name="twitter:url" content="https://www.umris-enterprise.is-great.org" />
+
+    <!-- Apple Touch Icon for iOS devices -->
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.png" />
+
+    <!-- Web App Manifest (For Progressive Web App) -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <!-- Title of the webpage -->
+    <title>Umris Enterprise - Logistics and Transportation</title>
   </head>
+
   <body>
+    <!-- Message in case JavaScript is disabled -->
     <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <!-- Root div where React app will be mounted -->
     <div id="root"></div>
+
+    <!-- Deployment info -->
     <!--
       This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
+      When you build the app, the React bundle will be inserted here.
+      To start development, use `npm start` or `yarn start`.
+      For production build, use `npm run build` or `yarn build`.
     -->
   </body>
 </html>

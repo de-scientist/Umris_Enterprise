@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const testimonialsData = [
   {
@@ -15,17 +15,16 @@ const testimonialsData = [
   },
   {
     id: 3,
-    name: 'MEDS',
-    image: '/meds.png',
+    name: 'Arkangelo Ali Association South Sudan',
+    image: '/meds1.png',
     feedback: 'We are amazed by the level of service. Umris Enterprises is efficient, friendly, and delivers beyond expectations!',
   },
   {
     id: 4,
-    name: 'Machole Contractors',
-    image: '/contractors.jpg',
-    feedback: 'We had a great experience with Umris Enterprises. They handled my delivery efficiently, and the customer support team was very responsive. Highly satisfied with their service!',
+    name: 'Spartan Relief Limited',
+    image: '/contractors.png',
+    feedback: 'We had a great experience with Umris Enterprises. They handled our delivery efficiently, and the customer support team was very responsive. Highly satisfied with their service!',
   }
-  
   // Add more testimonials as needed
 ];
 
@@ -73,7 +72,12 @@ const styles = {
     borderRadius: '8px',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
     textAlign: 'center',
-    transition: 'transform 0.3s',
+    transition: 'transform 0.3s, box-shadow 0.3s',
+  },
+  // Hover effect on card
+  cardHover: {
+    transform: 'scale(1.05)',
+    boxShadow: '0 8px 16px rgba(0, 0, 0, 0.3)',
   },
   image: {
     width: '100px',
